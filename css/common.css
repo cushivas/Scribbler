@@ -45,3 +45,12 @@
     justify-content: center;
     height: 90vh;
 }
+
+input[type="text"], [type="password"]{
+    background-color:#efefef !important;
+    border-radius: 0;
+}
+textarea {
+    background-color:#efefef !important;
+    border-radius: 0 !important;
+}
