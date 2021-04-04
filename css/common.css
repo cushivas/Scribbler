@@ -1,0 +1,47 @@
+.logo {
+    font-family: 'Montez', cursive;
+    color: blue;
+    font-size: x-large;
+}
+
+.tag-line {
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.btn-primary {
+    background-color: blue;
+}
+
+.success-color {
+    background-color: #28a745;
+}
+.success-color:hover {
+    background-color: #28a745;
+}
+
+.modal-header {
+    border-bottom: 2px solid #dee2e6;
+    color: grey;
+}
+
+.text-large {
+    font-size: larger;
+}
+
+.btn-link{
+    color: blue;
+    font-weight: 700;
+    padding: 0rem;
+}
+.sign-in-footer {
+    padding: 1rem;
+    text-align: center;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
