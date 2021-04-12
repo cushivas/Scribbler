@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+        type="text/css" media="screen" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montez&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script src="../bootstrap/jquery-3.2.1.slim.min.js"></script>
+    <script src="../bootstrap/popper.min.js"></script>
+    <script src="../bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
+    <script src="../js/post.js"></script>
+    <link rel="stylesheet" href="../css/post.css">
+    
+    <link rel="stylesheet" href="../css/common.css">
+
+    <title> Scribbler</title>
+</head>
+
+<body>
+
+    <header class="m-1">
+        <div class="d-flex justify-content-between">
+            <div>
+                <div class="logo">
+                    ScriBBler
+                </div>
+                <div class="tag-line">
+                    Explore, Imagine, Create
+                </div>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-primary rounded-0" data-toggle="modal"
+                    data-target="#signUpModal">Sign Up</button>
+                <button type="button" class="btn btn-primary rounded-0" data-toggle="modal"
+                    data-target="#signInModal">Sign In</button>
+
+
+                <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content rounded-0">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="text-large">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                            required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username"
+                                            placeholder="Enter your username" required>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Enter your password" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm password</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            placeholder="Re-enter your password" required>
+                                    </div>
+
+                                    <input type="submit"
+                                        class="btn btn-primary btn-block success-color rounded-0 border-0"
+                                        value="Sign Up">
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content rounded-0">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="signInModalLabel">Welcome Back!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="text-large">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username"
+                                            placeholder="Enter your username" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Enter your password" required>
+                                    </div>
+
+                                    <input type="submit"
+                                        class="btn btn-primary btn-block success-color rounded-0 border-0"
+                                        value="Sign In">
+                                </form>
+                                <p class="sign-in-footer">
+                                    <b>Not a Member?</b> <button type="button" class="btn btn-link"
+                                        onclick="showSignup()">Sign Up</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="post container">
+        <div class="heading-content" id="edit-heading" contenteditable="true"></div>
+        <div class="author">
+            <div class="author-name"></div>
+            <div>
+                <button id="edit-button" type="button" class="btn btn-danger paddinh" onclick="onEdit()">Edit<i
+                        class="fa fa-edit" ></i></button>
+            </div>
+        </div>
+
+
+        <div class="post-content" id="edit-contenttext" contenteditable="true">
+        </div>
+
+        <button id="like-button" type="button" class="btn btn-danger" onclick="countLikes()"><i
+                class="fa fa-thumbs-up"></i><span id="likeButton">Like</span></button>
+        <div id="showCount">Be the first one to like this</div>
+
+        <textarea id="comment" rows="4" cols="135" placeholder="Leave a comment..." name="comment"></textarea>
+        <div><button id="comment-button" type="button" class="btn btn-danger"
+                onclick="addComment(comment)">Comment</button></div>
+        <div id="allCommentsHeading">All Comments</div>
+        <div class="comment-container">
+            <div id="comments">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ATTENTION: The HTML code for the list of posts has been given to you. You can feel free to add/delete/modify this code. You need to write the proper CSS and JavaScript code corresponding to this page so that the result looks like the screenshots given to you in the Project Statement. -->
+
+</body>
+
+</html>
